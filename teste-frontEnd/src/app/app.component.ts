@@ -23,7 +23,7 @@ export class AppComponent implements OnInit{
   onAdd() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.width = '60vw';
-    dialogConfig.height = '54vh';
+    dialogConfig.height = '60vh';
     const dialogRef = this.dialog.open(AddClientComponent, dialogConfig);
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
