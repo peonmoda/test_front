@@ -1,0 +1,45 @@
+table {
+  box-shadow: none;
+}
+
+.card-content {
+  display:flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.search{
+  width: 400px;
+}
+::ng-deep .mdc-text-field .mdc-floating-label {
+  color: rgb(33, 105, 45) !important;
+
+}
+
+::ng-deep .mdc-text-field--outlined {
+  --mdc-outlined-text-field-outlined-width: 1px !important;
+  --mdc-outlined-text-field-focus-outline-width: 1px !important;
+  --mdc-outlined-text-field-container-shape: 40px !important;
+}
+
+
+.mat-mdc-row .mat-mdc-cell {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+}
+
+.custom-card {
+  border-radius: 16px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.custom-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 25px;
+}

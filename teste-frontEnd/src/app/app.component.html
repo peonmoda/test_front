@@ -1,0 +1,51 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
+<mat-toolbar color="primary" class="custom-toolbar">
+  <button mat-icon-button *ngIf="sidenav.mode == 'over'" (click)="sidenav.toggle()">
+    <mat-icon *ngIf="!sidenav.opened">menu</mat-icon>
+    <mat-icon *ngIf="sidenav.opened">close</mat-icon>
+  </button>
+  <img src="../assets/peon-white.png.webp" alt="PEON" style="width: 120px;height: auto;padding: 20px;">
+</mat-toolbar>
+<mat-sidenav-container color="primary" class="sidenav-container">
+  <mat-sidenav>
+
+    <mat-nav-list>
+      <mat-list-item (click)="sidenav.mode == 'over' && sidenav.toggle()" routerLink="/lista">
+        <mat-icon matListItemIcon>list</mat-icon>
+        Clientes
+      </mat-list-item>
+    </mat-nav-list>
+
+    <mat-nav-list>
+      <mat-list-item (click)="sidenav.mode == 'over' && sidenav.toggle(); onAdd()">
+        <mat-icon matListItemIcon>add</mat-icon>
+        Novo cliente
+      </mat-list-item>
+    </mat-nav-list>
+    <div class="inform author">
+      <mat-list-item class="dev">
+        <small>Desenvolvido por</small>
+      </mat-list-item>
+      <mat-list-item>
+        <span>Leonardo Goulart</span>
+      </mat-list-item>
+      <div class="icons">
+        <a mat-button [href]="'https://github.com/Aschtward'" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-github fa-2x"></i>
+        </a>
+        <a mat-button [href]="'https://www.linkedin.com/in/leonardo-goulart-92575922a/'" target="_blank"
+          rel="noopener noreferrer">
+          <i class="fab fa-linkedin fa-2x"></i>
+        </a>
+      </div>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
