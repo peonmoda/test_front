@@ -1,0 +1,24 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .localization{
+    padding-left: 20px;
+  }
+
+  .header {
+    background-color: rgb(106, 183, 255);
+  }
+
+  .header .crudApplication {
+    color: #fff;
+  }
+
+  .main-body {
+    padding-top: 20px;
+    margin: 0 auto;
+    max-width: 1248px;
+    mat-form-field {
+      width: 100%;
+    }
+  }

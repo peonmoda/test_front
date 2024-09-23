@@ -1,0 +1,80 @@
+<mat-toolbar class="header">
+  <div class="crudHeader">
+    <span class="crudApplication">Desafio CRUD - Peōn</span>
+    <!-- <span class="crudApplication"><a [routerLink]="['/']">Desafio CRUD - Peōn</a></span>
+    <span class="localization"><a [routerLink]="['/address-card']">Endereços</a></span> -->
+  </div>
+  <span class="example-spacer"></span>
+  <button mat-raised-button (click)="openAddEditEmpForm()">
+
+    Incluir Cadastro
+
+  </button>
+</mat-toolbar>
+
+<div>
+  <router-outlet [routerLink]="['/address-card']"></router-outlet>
+</div>
+
+<div class="main-body">
+
+  <mat-form-field>
+    <mat-label>Pesquisa</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. José" #input>
+  </mat-form-field>
+
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource" matSort>
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+        <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="cpfForm">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> CPF </th>
+        <td mat-cell *matCellDef="let row"> {{row.cpfForm}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="nameForm">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+        <td mat-cell *matCellDef="let row"> {{row.nameForm}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="dobForm">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Data de Nascimento </th>
+        <td mat-cell *matCellDef="let row"> {{row.dobForm | date:'dd/MM/yy'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="emailForm">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> E-mail </th>
+        <td mat-cell *matCellDef="let row"> {{row.emailForm}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Ações </th>
+        <td mat-cell *matCellDef="let row">
+          <button mat-icon-button (click)="openAddressForm(row)" color="secundary">
+            <mat-icon>pin_drop</mat-icon>
+          </button>
+          <button mat-icon-button (click)="openEditForm(row)" color="primary">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button (click)="deletePessoa(row.id)" color="warn">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">Resultado não encontrado "{{input.value}}"</td>
+      </tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+  </div>
+
+</div>

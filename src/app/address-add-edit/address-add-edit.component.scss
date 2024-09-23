@@ -1,0 +1,19 @@
+
+
+.main--body{
+    display: flex;
+    flex-direction: column;
+}
+
+.main--body .btn-add{
+    padding: 1rem;
+    margin: 1rem;
+    width: 40%;
+    align-self: center;
+}
+
+.main--body .search-filter{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}

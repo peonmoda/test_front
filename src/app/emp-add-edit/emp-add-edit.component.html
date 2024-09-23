@@ -1,0 +1,55 @@
+<div mat-dialog-title class="titleForm">
+    <h4>Cadastrar Novo Cliente</h4>
+</div>
+
+<form [formGroup]="empForm" (ngSubmit)="onFormSubmit()">
+    <div mat-dialog-content class="content">
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Nome</mat-label>
+                <input matInput type="text" placeholder="Insira seu nome completo" formControlName="nameForm">
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Identificação (CPF)</mat-label>
+                <input matInput type="text" placeholder="Ex.: 000.000.000-00" formControlName="cpfForm">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Telefone</mat-label>
+                <input matInput type="text" placeholder="Ex.: (00) 0 0000-0000" formControlName="phoneForm">
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Data de Nascimento</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="dobForm">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>E-mail</mat-label>
+                <input matInput type="email" placeholder="Ex.: example@gmail.com" formControlName="emailForm">
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-radio-group aria-label="genero" formControlName="genderForm">
+                <mat-label><b>Gênero</b></mat-label>
+                <mat-radio-button value="male">Masculino</mat-radio-button>
+                <mat-radio-button value="female">Feminino</mat-radio-button>
+                <mat-radio-button value="others">Outro</mat-radio-button>
+            </mat-radio-group>
+        </div>
+
+    </div>
+
+    <div class="buttonRegister" mat-dialog-actions>
+        <button mat-stroked-button type="button" (click)="onNoClick()" >Cancelar</button>
+        <button mat-stroked-button type="submit">{{data ? 'Atualizar': 'Salvar'}}</button>
+    </div>
+</form>
